@@ -14,6 +14,7 @@ namespace TechJobs.Controllers
             ViewBag.actions = actionChoices;
 
             return View();
+            //Make some stuff add-able for Elliot-test save
         }
     }
 }
