@@ -13,8 +13,24 @@ namespace TechJobs.Controllers
             return View();
         }
 
-        // TODO #1 - Create a Results action method to process 
+        // TODO #1 - Create a Results action method to process
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+
         // search request and display results
+        [HttpPost]
+        [Route("/Home/Search")]
+        public IActionResult SearchResults(string name)
+        {
+            //display the search results
+            ResultsDisplayed.Add(name)
+
+            return Redirect("/Home")
+        }
+        
 
     }
 }
