@@ -12,7 +12,7 @@ namespace TechJobs.Controllers
             ViewBag.title = "Search";
             return View();
         }
-
+        /*
         // TODO #1 - Create a Results action method to process
         public IActionResult Search()
         {
@@ -28,8 +28,8 @@ namespace TechJobs.Controllers
             //display the search results
             ResultsDisplayed.Add(name)
 
-            return Redirect("/Home")
-        }
+            return Redirect("/Home");
+        } */
         
 
     }
