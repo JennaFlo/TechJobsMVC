@@ -13,20 +13,24 @@ namespace TechJobs.Controllers
             return View();
         }
         /*
-        // TODO #1 - Create a Results action method to process
-        public IActionResult Search()
+        // TODO #1 - Create a Results action method to process*/
+        [HttpPost]
+        [Route("/Home/Search")]
+        public IActionResult Search(string job)
         {
-            return View();
+            ListController.columnChoices(job);
+            return View("/Home/Search");
         }
 
 
-        // search request and display results
-        [HttpPost]
+        //* search request and display results
+        
+        /*[HttpPost]
         [Route("/Home/Search")]
         public IActionResult SearchResults(string name)
         {
             //display the search results
-            ResultsDisplayed.Add(name)
+            ListController.columnChoices(name)
 
             return Redirect("/Home");
         } */
