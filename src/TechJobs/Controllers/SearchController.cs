@@ -14,26 +14,31 @@ namespace TechJobs.Controllers
         }
         /*
         // TODO #1 - Create a Results action method to process*/
-        [HttpPost]
-        [Route("/Home/Search")]
-        public IActionResult Search(string job)
-        {
-            ListController.columnChoices(job);
-            return View("/Home/Search");
-        }
-
-
-        //* search request and display results
         
-        /*[HttpPost]
-        [Route("/Home/Search")]
-        public IActionResult SearchResults(string name)
+       
+        public IActionResult Results(string searchType, string searchTerm)
         {
-            //display the search results
-            ListController.columnChoices(name)
-
-            return Redirect("/Home");
-        } */
+            ViewBag.title = "Search";
+            //jobdata class-methods: Load data method: 
+            if (searchTerm == null && searchType.Equals("all"))
+            {
+                ViewBag.jobs = JobData.FindAll();
+            }
+            else if(searchTerm != null && searchType.Equals("all"))
+            {
+                ViewBag.jobs = JobData.FindByValue(searchTerm);
+            }
+            else if(searchTerm == null && searchType.Equals("all")== false)
+            {
+                ViewBag.jobs = new List<string> { };
+            }
+            else
+            {
+                ViewBag.jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
+            }
+            ViewBag.columns = ListController.columnChoices;
+            return View("Index");
+        }
         
 
     }
